@@ -1,0 +1,159 @@
+{
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "XRPUSDT",
+    "BNBUSDT",
+    "ADAUSDT",
+    "AVAXUSDT"
+  ],
+  "timeframes": {
+    "entry": "1",
+    "filter": "5"
+  },
+  "loop_seconds": 60,
+  "market_data": {
+    "base_url": "https://api.bybit.com",
+    "kline_limit": 200,
+    "orderbook_limit": 25,
+    "use_websocket_orderbook": true
+  },
+  "ai": {
+    "mode": "openai_with_fallback",
+    "model": "gpt-5",
+    "ema_fast_period": 9,
+    "ema_slow_period": 21,
+    "rsi_period": 14,
+    "atr_period": 14,
+    "min_confidence": 0.60,
+    "min_stop_loss_pct": 0.0035,
+    "sl_atr_multiplier": 1.2,
+    "risk_reward_ratio": 1.8,
+    "consensus_threshold": 0.55,
+    "orderbook_imbalance_threshold": 0.12,
+    "liquidity_trap_threshold": 0.35,
+    "position_boost_on_orderbook": 1.15,
+    "position_cut_on_orderbook": 0.70
+  },
+  "news": {
+    "enabled": true,
+    "feeds": [
+      "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "https://cointelegraph.com/rss",
+      "https://www.theblock.co/rss.xml"
+    ],
+    "lookback_minutes": 180,
+    "cache_minutes": 5,
+    "request_timeout_seconds": 10,
+    "yellow_threshold": 4,
+    "red_threshold": 8,
+    "red_headline_threshold": 8,
+    "macro_red_threshold": 8,
+    "systemic_red_threshold": 8,
+    "yellow_size_multiplier": 0.7,
+    "red_size_multiplier": 0.0,
+    "crypto_keyword_weights": {
+      "etf": 2,
+      "liquidation": 2,
+      "whale": 1,
+      "defi": 1,
+      "staking": 1,
+      "upgrade": 1
+    },
+    "macro_keyword_weights": {
+      "cpi": 5,
+      "fomc": 5,
+      "fed": 4,
+      "rates": 3,
+      "tariff": 4,
+      "sanction": 4,
+      "war": 5
+    },
+    "systemic_keyword_weights": {
+      "sec": 4,
+      "hack": 5,
+      "exploit": 5,
+      "lawsuit": 4,
+      "bankruptcy": 5,
+      "attack": 4,
+      "breach": 5,
+      "outage": 4,
+      "bybit": 4
+    },
+    "symbol_keywords": {
+      "BTCUSDT": [
+        "bitcoin",
+        "btc",
+        "crypto"
+      ],
+      "ETHUSDT": [
+        "ethereum",
+        "eth",
+        "crypto"
+      ],
+      "SOLUSDT": [
+        "solana",
+        "sol",
+        "crypto"
+      ],
+      "XRPUSDT": [
+        "xrp",
+        "ripple",
+        "crypto"
+      ],
+      "BNBUSDT": [
+        "bnb",
+        "binance coin",
+        "crypto"
+      ],
+      "ADAUSDT": [
+        "ada",
+        "cardano",
+        "crypto"
+      ],
+      "AVAXUSDT": [
+        "avax",
+        "avalanche",
+        "crypto"
+      ]
+    }
+  },
+  "execution": {
+    "category": "linear",
+    "recv_window": 5000,
+    "live_trading": true,
+    "default_leverage": 2
+  },
+  "risk": {
+    "max_open_positions": 5,
+    "risk_per_trade_pct": 0.005,
+    "max_total_risk_pct": 0.02,
+    "daily_loss_limit_pct": 0.02,
+    "max_consecutive_losses": 3,
+    "pause_after_loss_streak_minutes": 180,
+    "min_order_notional_usdt": 10.0,
+    "max_margin_usage_pct": 0.9
+  },
+  "learning": {
+    "enabled": true,
+    "journal_limit": 200,
+    "cut_after_loss_streak": 2,
+    "block_after_loss_streak": 3,
+    "reduced_size_multiplier": 0.5
+  },
+  "telegram": {
+    "enabled": true,
+    "title": "RockTrade AI Director",
+    "style": "premium",
+    "daily_report_hour": 23,
+    "daily_report_minute": 0
+  },
+  "dashboard": {
+    "title": "Mission Control",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "refresh_seconds": 5,
+    "trader_service_name": "bybit-ai-trader.service"
+  }
+}
