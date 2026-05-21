@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 flex items-center h-16 gap-8">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl text-red-500 shrink-0">
-          🚗 AutoChina
+          🚗 Chi Mall & NoS
         </Link>
         <div className="flex gap-6 text-sm font-medium">
           <NavLink to="/" end className={({ isActive }) => isActive ? "text-red-400" : "hover:text-white text-gray-300"}>

@@ -18,7 +18,7 @@ export default function App() {
         </Routes>
       </main>
       <footer className="bg-gray-900 text-gray-400 text-center text-sm py-6 mt-12">
-        © 2025 AutoChina · Автомобили из Китая под ключ · Новороссийск
+        © 2025 Chi Mall and NoS · Автомобили из Китая под ключ · Новороссийск
       </footer>
     </div>
   );

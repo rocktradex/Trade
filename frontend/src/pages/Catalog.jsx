@@ -35,7 +35,7 @@ export default function Catalog() {
       <div className="bg-gray-900 text-white py-14 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-extrabold mb-3">
-            Автомобили из <span className="text-red-500">Китая</span> под ключ
+            <span className="text-red-500">Chi Mall</span> & <span className="text-white">NoS</span>
           </h1>
           <p className="text-gray-400 text-lg mb-6">
             Показываем полную стоимость — цена в Китае, доставка до Новороссийска, таможня, все расходы в РФ.
