@@ -4,13 +4,12 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
-    disk:
-      name: chimall-data
-      mountPath: /data
-      sizeGB: 1
+    branch: claude/car-marketplace-app-AqfD8
     envVars:
       - key: ADMIN_PASSWORD
         generateValue: false
         value: china2024
       - key: DATABASE_URL
-        value: sqlite:////data/cars.db
+        value: sqlite:////app/data/cars.db
+      - key: PORT
+        value: 8000

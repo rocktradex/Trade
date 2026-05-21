@@ -16,10 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ ./
 COPY --from=frontend-builder /app/frontend/dist /app/frontend/dist
 
-# Папка для загружаемых фото (на Render монтируется persistent disk)
-RUN mkdir -p /data/uploads && ln -sf /data/uploads /app/backend/uploads
+RUN mkdir -p /app/data/uploads && ln -sf /app/data/uploads /app/backend/uploads
 
 EXPOSE 8000
-ENV DATABASE_URL=sqlite:////data/cars.db
+ENV DATABASE_URL=sqlite:////app/data/cars.db
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
