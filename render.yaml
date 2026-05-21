@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: chimall-nos
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: chimall-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: ADMIN_PASSWORD
+        generateValue: false
+        value: china2024
+      - key: DATABASE_URL
+        value: sqlite:////data/cars.db

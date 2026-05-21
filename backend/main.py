@@ -50,8 +50,8 @@ def get_settings(db: Session) -> Settings:
 
 
 def require_admin(x_admin_password: Optional[str] = Header(default=None), db: Session = Depends(get_db)):
-    settings = get_settings(db)
-    if x_admin_password != settings.admin_password:
+    expected = os.environ.get("ADMIN_PASSWORD") or get_settings(db).admin_password
+    if x_admin_password != expected:
         raise HTTPException(status_code=401, detail="Неверный пароль")
 
 
@@ -165,10 +165,10 @@ def calculate(data: CalculatorInput, db: Session = Depends(get_db)):
 
 @app.post("/api/admin/login")
 def admin_login(body: dict, db: Session = Depends(get_db)):
-    s = get_settings(db)
-    if body.get("password") != s.admin_password:
+    expected = os.environ.get("ADMIN_PASSWORD") or get_settings(db).admin_password
+    if body.get("password") != expected:
         raise HTTPException(status_code=401, detail="Неверный пароль")
-    return {"token": s.admin_password}
+    return {"token": expected}
 
 
 @app.get("/api/admin/cars", response_model=List[CarOut], dependencies=[Depends(require_admin)])
