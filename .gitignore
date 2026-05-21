@@ -7,3 +7,7 @@ backups/
 *.bak
 *.save
 *.save.*
+
+# Car marketplace
+backend/cars.db
+frontend/node_modules/
